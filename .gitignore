@@ -1,0 +1,7 @@
+node_modules/
+.codex/verify-output/*.log
+.codex/verify-output/screenshots/
+.codex/verify-output/performance-notes.json
+.codex/verify-state.json
+npm-debug.log*
+.DS_Store

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "reason": "make verify passed and no P1 issues remain in the bootstrap scaffold.",
+  "verified_at": "2026-06-13T11:23:27Z",
+  "commands": [
+    {
+      "command": "make verify",
+      "exit_code": 0,
+      "log": ".codex/verify-output/latest.log"
+    }
+  ],
+  "p1_findings": [],
+  "manual_checks_remaining": [
+    "BASE live checkout",
+    "BASE pickup reservation flow",
+    "BASE HTML編集 App preview",
+    "BASE テイクアウト App での受け取り日時選択",
+    "Instagram アプリ内ブラウザ",
+    "実機スマートフォン",
+    "食品表示の最終確認"
+  ]
+}
