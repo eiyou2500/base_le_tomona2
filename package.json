@@ -1,0 +1,16 @@
+{
+  "name": "le-tomona-base-theme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "format": "node scripts/format-check.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/test.mjs",
+    "verify": "bash scripts/verify.sh"
+  }
+}
