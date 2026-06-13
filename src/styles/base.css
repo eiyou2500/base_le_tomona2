@@ -1,0 +1,113 @@
+:root {
+  color: #2f2118;
+  background: #fffaf3;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+body {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.site-header,
+.site-footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  background: #5b3928;
+  color: #fffaf3;
+}
+
+.brand,
+.site-footer p {
+  margin: 0;
+}
+
+.hero,
+.purchase-paths,
+.food-labels,
+.access,
+.guide {
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 5vw, 4rem);
+}
+
+.hero {
+  background: linear-gradient(135deg, #fff3df, #f8dfbd);
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.2rem, 8vw, 5rem);
+}
+
+.address {
+  font-weight: 700;
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
+  background: #7a3f2b;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button-secondary {
+  background: #27614d;
+}
+
+.purchase-paths {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card,
+.food-labels,
+.access,
+.guide {
+  border: 1px solid #ead4ba;
+  border-radius: 1rem;
+  background: #ffffff;
+}
+
+.card {
+  padding: 1.25rem;
+}
+
+dl {
+  display: grid;
+  gap: 0.75rem;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0 0 0.75rem;
+}
+
+@media (min-width: 760px) {
+  .purchase-paths {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .purchase-paths h2 {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+  }
+}
