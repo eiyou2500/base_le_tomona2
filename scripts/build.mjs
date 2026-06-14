@@ -1,0 +1,11 @@
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+await rm("dist", { recursive: true, force: true });
+await mkdir("dist/assets", { recursive: true });
+await writeFile("dist/.gitkeep", "");
+const html = await readFile("src/templates/base-theme.html", "utf8");
+await writeFile("dist/index.html", html);
+await cp("src/styles/base.css", "dist/assets/base.css");
+await cp("src/scripts/main.js", "dist/assets/main.js");
+console.log("built dist/index.html");
+console.log("built dist/assets/base.css");
+console.log("built dist/assets/main.js");

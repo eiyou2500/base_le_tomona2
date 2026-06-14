@@ -1,0 +1,20 @@
+{
+  "name": "le-tomona-base-theme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "format": "node scripts/format-check.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/test.mjs",
+    "verify": "bash scripts/verify.sh",
+    "e2e": "node scripts/e2e-playwright.mjs",
+    "audit:ui": "node scripts/audit-ui-text.mjs",
+    "audit:products": "node scripts/audit-product-modes.mjs",
+    "audit:food": "node scripts/audit-food-labels.mjs"
+  }
+}
