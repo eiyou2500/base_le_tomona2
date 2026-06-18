@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Le Tomona｜米原のパイとフラン</title>
-  <meta name="description" content="滋賀県米原市顔戸439のLe Tomona。配送商品と店頭受け取り予約商品を分けて案内するBASEテーマの最小構成です。">
+  <meta name="description" content="滋賀県米原市顔戸439のLe Tomona。配送商品と店頭受け取り予約商品を分けて案内するBASEテーマです。">
   <meta property="og:title" content="Le Tomona｜米原のパイとフラン">
   <meta property="og:description" content="配送で購入できる商品と店頭受け取り予約の商品を明確に分けてご案内します。">
   <meta property="og:type" content="website">
@@ -12,56 +12,168 @@
 </head>
 <body>
   <header class="site-header" aria-label="店舗情報">
-    <p class="brand">Le Tomona</p>
+    <a class="brand" href="#top">Le Tomona</a>
+    <nav class="site-nav" aria-label="ページ内案内">
+      <a href="#shipping-products">配送で購入</a>
+      <a href="#pickup-products">店頭受け取り予約</a>
+      <a href="#food-labels">食品表示</a>
+    </nav>
   </header>
-  <main>
+  <main id="top">
     <section class="hero">
+      <p class="eyebrow">滋賀県米原市顔戸439</p>
       <h1>Le Tomona</h1>
-      <p>フランスの日常にある、パイとフランを米原で。</p>
-      <p class="address">滋賀県米原市顔戸439</p>
+      <p class="lead">フランスの日常にある、パイとフランを米原で。</p>
       <nav class="cta-group" aria-label="購入方法">
         <a class="button" href="#shipping-products">配送で購入</a>
         <a class="button button-secondary" href="#pickup-products">店頭受け取り予約</a>
       </nav>
     </section>
+
     <section class="purchase-paths" aria-labelledby="purchase-title">
       <h2 id="purchase-title">購入方法を分けてご案内します</h2>
-      <article id="shipping-products" class="card">
-        <h3>配送で購入</h3>
+      <p class="section-note">配送商品と店頭受け取り予約商品は異なります。商品名と購入方法を必ず確認してください。</p>
+      <article id="shipping-products" class="path-card" aria-labelledby="shipping-title">
+        <h3 id="shipping-title">配送で購入</h3>
         <p>配送商品として案内する商品です。</p>
-        <ul>
-          <li>パルミエ プレーン</li>
-          <li>パルミエ ショコラ</li>
-          <li>パルミエ ショコラホワイト</li>
-        </ul>
+        <div class="product-grid">
+          <article class="product-card" data-product="パルミエ プレーン" data-mode="shipping">
+            <p class="mode-label">配送商品</p>
+            <h4>パルミエ プレーン</h4>
+            <a class="button small" href="#shipping-products">配送で購入</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="パルミエ ショコラ" data-mode="shipping">
+            <p class="mode-label">配送商品</p>
+            <h4>パルミエ ショコラ</h4>
+            <a class="button small" href="#shipping-products">配送で購入</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="パルミエ ショコラホワイト" data-mode="shipping">
+            <p class="mode-label">配送商品</p>
+            <h4>パルミエ ショコラホワイト</h4>
+            <a class="button small" href="#shipping-products">配送で購入</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+        </div>
       </article>
-      <article id="pickup-products" class="card">
-        <h3>店頭受け取り予約</h3>
+
+      <article id="pickup-products" class="path-card" aria-labelledby="pickup-title">
+        <h3 id="pickup-title">店頭受け取り予約</h3>
         <p>店頭受け取り予約商品として案内する商品です。</p>
-        <ul>
-          <li>フラン バニラ</li>
-          <li>フラン ショコラ</li>
-          <li>フラン セゾン</li>
-          <li>アップルパイ</li>
-          <li>パルミエ プレーン</li>
-          <li>パルミエ ショコラ</li>
-          <li>パルミエ ショコラホワイト</li>
-        </ul>
+        <div class="product-grid">
+          <article class="product-card" data-product="フラン バニラ" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>フラン バニラ</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="フラン ショコラ" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>フラン ショコラ</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="フラン セゾン" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>フラン セゾン</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="アップルパイ" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>アップルパイ</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="パルミエ プレーン" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>パルミエ プレーン</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="パルミエ ショコラ" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>パルミエ ショコラ</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+          <article class="product-card" data-product="パルミエ ショコラホワイト" data-mode="pickup">
+            <p class="mode-label pickup">店頭受け取り予約商品</p>
+            <h4>パルミエ ショコラホワイト</h4>
+            <a class="button button-secondary small" href="#pickup-products">店頭受け取り予約</a>
+            <dl class="product-labels">
+              <dt>原材料</dt><dd>商品詳細で表示</dd>
+              <dt>アレルギー</dt><dd>商品詳細で表示</dd>
+              <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
+              <dt>保存方法</dt><dd>商品詳細で表示</dd>
+            </dl>
+          </article>
+        </div>
       </article>
     </section>
-    <section class="food-labels" aria-labelledby="food-label-title">
+
+    <section id="food-labels" class="food-labels" aria-labelledby="food-label-title">
       <h2 id="food-label-title">食品表示項目</h2>
-      <dl>
-        <dt>原材料</dt><dd>商品詳細で表示</dd>
-        <dt>アレルギー</dt><dd>商品詳細で表示</dd>
-        <dt>賞味期限または消費期限</dt><dd>商品詳細で表示</dd>
-        <dt>保存方法</dt><dd>商品詳細で表示</dd>
-      </dl>
+      <p>各商品詳細では、次の項目を商品ごとに表示します。値はBASEの商品詳細で確定した内容を使用します。</p>
+      <ul>
+        <li>原材料</li>
+        <li>アレルギー</li>
+        <li>賞味期限または消費期限</li>
+        <li>保存方法</li>
+      </ul>
     </section>
+
     <section class="access" aria-labelledby="access-title">
       <h2 id="access-title">店舗所在地</h2>
       <p>滋賀県米原市顔戸439</p>
     </section>
+
     <section class="guide" aria-labelledby="guide-title">
       <h2 id="guide-title">ご案内</h2>
       <p>配送商品と店頭受け取り予約商品は異なることを明記します。</p>

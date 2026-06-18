@@ -1,10 +1,24 @@
 import { existsSync } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 const failures = [];
-for (const f of ["README.md", "AGENTS.md", "docs/release-checklist.md", "docs/verification-protocol.md", "LOOP_LOG.md", "NEXT_HYPOTHESES.md", ".github/workflows/verify.yml", ".codex/hooks.json", ".codex/hooks/stop_verify.py", "dist/index.html"]) if (!existsSync(f)) failures.push(`missing ${f}`);
+for (const f of ["README.md", "AGENTS.md", "docs/release-checklist.md", "docs/verification-protocol.md", "LOOP_LOG.md", "NEXT_HYPOTHESES.md", ".github/workflows/verify.yml", ".github/workflows/pages.yml", ".codex/hooks.json", ".codex/hooks/stop_verify.py", "dist/index.html"]) if (!existsSync(f)) failures.push(`missing ${f}`);
 const checklist = existsSync("docs/release-checklist.md") ? await readFile("docs/release-checklist.md", "utf8") : "";
-for (const s of ["BASE live checkout", "BASE テイクアウト App", "BASE HTML編集 App", "Instagram アプリ内ブラウザ", "実機スマートフォン", "食品表示の最終確認"]) if (!checklist.includes(s)) failures.push(`release checklist missing ${s}`);
+for (const s of ["BASE live checkout", "BASE テイクアウト App", "BASE HTML編集 App", "Instagram アプリ内ブラウザ", "実機スマートフォン", "食品表示の最終確認", "Playwright visual and functional checks", "reduced-motion audit", "no horizontal overflow audit", "Lighthouse measurement", "GitHub Pages preview", "Source is set to GitHub Actions", "workflow uploads ./dist", "not README"]) if (!checklist.includes(s)) failures.push(`release checklist missing ${s}`);
 const protocol = existsSync("docs/verification-protocol.md") ? await readFile("docs/verification-protocol.md", "utf8") : "";
-for (const s of ["worker", "verifier", "Stop hook", "make verify", "PASS", "FAIL", "BLOCKED", "self-reporting is not trusted"]) if (!protocol.includes(s)) failures.push(`verification protocol missing ${s}`);
+for (const s of ["worker", "verifier", "Stop hook", "make verify", "PASS", "FAIL", "BLOCKED", "self-reporting is not trusted", "Playwright", "screenshots", "performance notes"]) if (!protocol.includes(s)) failures.push(`verification protocol missing ${s}`);
+if (existsSync(".github/workflows/pages.yml")) {
+  const pages = await readFile(".github/workflows/pages.yml", "utf8");
+  for (const s of ["actions/upload-pages-artifact", "actions/deploy-pages", "actions/configure-pages", "workflow_dispatch", "contents: read", "pages: write", "id-token: write", "github-pages", "node-version: '22'"]) if (!pages.includes(s)) failures.push(`pages workflow missing ${s}`);
+  if (!/path:\s*\.\/dist\b/.test(pages)) failures.push("pages workflow must upload ./dist");
+  if (!/push:\s*\n\s*branches:\s*\[main\]/.test(pages)) failures.push("pages workflow must run on push to main");
+  if (/path:\s*\.\s*(\n|$)/.test(pages)) failures.push("pages workflow must not upload repository root");
+  if (/path:\s*\.\/docs\b/.test(pages) || /path:\s*_site\b/.test(pages)) failures.push("pages workflow must not upload docs or _site");
+}
+if (!existsSync(".codex/verify-output/performance-notes.json")) failures.push("missing performance notes artifact");
+if (!existsSync(".codex/verify-output/screenshots")) failures.push("missing screenshots artifact directory");
+else {
+  const shots = await readdir(".codex/verify-output/screenshots");
+  for (const width of [320, 375, 390, 414, 430, 768, 1024, 1280, 1440]) if (!shots.includes(`${width}.svg`)) failures.push(`missing screenshot ${width}.svg`);
+}
 if (failures.length) { console.error(failures.join("\n")); process.exit(1); }
 console.log("release verification passed");

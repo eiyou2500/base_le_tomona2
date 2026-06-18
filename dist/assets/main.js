@@ -1,5 +1,5 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (!prefersReducedMotion) {
-  document.documentElement.style.scrollBehavior = "smooth";
+  document.documentElement.dataset.motion = "standard";
 }

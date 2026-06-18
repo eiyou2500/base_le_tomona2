@@ -13,6 +13,8 @@ Codex verifier は repository files、git diff、make verify output、test logs�
 - repository files
 - command logs
 - build outputs
+- Playwright screenshots in `.codex/verify-output/screenshots/`
+- performance notes in `.codex/verify-output/performance-notes.json`
 - `VERIFY_REPORT.md`
 - `VERIFY_STATUS.json`
 
@@ -28,15 +30,19 @@ Stop hook は `make verify` を実行し、`VERIFY_STATUS.json` が PASS であ�
 
 ## `make verify`
 
-`make verify` は npm install、lint、format、build、test、content verification、release verification を順番に実行します。
+`make verify` は npm install、Playwright Chromium install、lint、format、build、test、Japanese UI audit、product-mode audit、food-label audit、Playwright visual and functional checks、content verification、release verification を順番に実行します。
 
 ## GitHub Actions
 
 GitHub Actions は pull request と main への push で `make verify` を実行する外側の検証です。
 
+## Automated browser gates
+
+Playwright は 320px、375px、390px、414px、430px、768px、1024px、1280px、1440px で表示、CTA、reduced motion、横スクロールなし、スクリーンショット生成、簡易 performance notes を確認します。
+
 ## Manual checks
 
-BASE HTML編集 App、BASE テイクアウト App、BASE live checkout、Instagram アプリ内ブラウザ、実機スマートフォン、食品表示の最終確認は手動確認が必要です。
+BASE HTML編集 App、BASE テイクアウト App、BASE live checkout、Instagram アプリ内ブラウザ、実機スマートフォン、食品表示の最終確認、BASE プレビューでの Lighthouse 計測は手動確認が必要です。
 
 ## Maximum loop guard
 
@@ -48,4 +54,4 @@ PASS は検証通過、FAIL は修正可能な検証失敗、BLOCKED は環境�
 
 ## Why Codex self-reporting is not trusted
 
-完了判断は narrative ではなく、リポジトリ成果物、コマンドログ、verifier の PASS / FAIL に限定します。
+完了判断は narrative ではなく、リポジトリ成果物、コマンドログ、verifier の PASS / FAIL に限定します。VERIFY_REPORT.md は evidence を列挙し、worker narrative の代替として使いません。

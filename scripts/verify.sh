@@ -48,7 +48,10 @@ $status
 - Repository files
 - Build output in dist/index.html
 - Command log at .codex/verify-output/latest.log
+- Playwright screenshots in .codex/verify-output/screenshots/
+- Playwright performance notes in .codex/verify-output/performance-notes.json
 - Release checklist at docs/release-checklist.md
+- GitHub Pages workflow at .github/workflows/pages.yml uploads ./dist
 
 ## Commands run
 
@@ -58,6 +61,10 @@ $status
 - npm run format
 - npm run build
 - npm run test
+- npm run audit:ui
+- npm run audit:products
+- npm run audit:food
+- npm run e2e
 - node scripts/verify-content.mjs
 - node scripts/verify-release.mjs
 
@@ -94,7 +101,7 @@ run_step() {
 }
 write_status "FAIL" "Verification is running; stale PASS invalidated." 1
 failed=""
-steps=("npm install" "npm run lint" "npm run format" "npm run build" "npm run test" "node scripts/verify-content.mjs" "node scripts/verify-release.mjs")
+steps=("npm install" "npm run lint" "npm run format" "npm run build" "npm run test" "npm run audit:ui" "npm run audit:products" "npm run audit:food" "npm run e2e" "node scripts/verify-content.mjs" "node scripts/verify-release.mjs")
 for step in "${steps[@]}"; do
   if ! run_step "$step" bash -lc "$step"; then failed="$step"; break; fi
 done
