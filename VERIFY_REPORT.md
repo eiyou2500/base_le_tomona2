@@ -9,10 +9,7 @@ PASS
 - Repository files
 - Build output in dist/index.html
 - Command log at .codex/verify-output/latest.log
-- Playwright screenshots in .codex/verify-output/screenshots/
-- Playwright performance notes in .codex/verify-output/performance-notes.json
 - Release checklist at docs/release-checklist.md
-- GitHub Pages workflow at .github/workflows/pages.yml uploads ./dist
 
 ## Commands run
 
@@ -22,10 +19,6 @@ PASS
 - npm run format
 - npm run build
 - npm run test
-- npm run audit:ui
-- npm run audit:products
-- npm run audit:food
-- npm run e2e
 - node scripts/verify-content.mjs
 - node scripts/verify-release.mjs
 

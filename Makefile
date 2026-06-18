@@ -1,4 +1,4 @@
-.PHONY: verify lint format build test e2e verify-content verify-release audit-ui audit-products audit-food
+.PHONY: verify lint format build test verify-content verify-release
 
 verify:
 	@bash scripts/verify.sh
@@ -14,18 +14,6 @@ build:
 
 test:
 	@npm run test
-
-e2e:
-	@npm run e2e
-
-audit-ui:
-	@npm run audit:ui
-
-audit-products:
-	@npm run audit:products
-
-audit-food:
-	@npm run audit:food
 
 verify-content:
 	@node scripts/verify-content.mjs

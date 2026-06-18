@@ -20,8 +20,3 @@
 
 - Stop hook と GitHub Actions の二重化により、worker narrative だけの完了報告を抑止できる可能性がある。
 - BASE 手動確認項目を release checklist に残すことで、自動検証の範囲外を明確にできる可能性がある。
-## GitHub Pages deployment hypotheses
-
-- GitHub Pages Source が GitHub Actions の場合、pages.yml が ./dist のみを upload-pages-artifact に渡すことで README や docs が公開される事故を避けられる可能性がある。
-- 公開URL確認では、ファーストビューに 配送で購入 と 店頭受け取り予約 が表示されることを最優先で確認する必要がある。
-- GitHub Pages の反映遅延により、workflow 成功直後でも旧 README 表示が短時間残る可能性がある。

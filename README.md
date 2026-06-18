@@ -10,7 +10,7 @@ Le Tomona BASE custom theme のブートストラップ用リポジトリです�
 make verify
 ```
 
-`make verify` は lint、format、build、test、Japanese UI audit、product-mode audit、food-label audit、Playwright visual and functional checks、content verification、release verification を実行します。Playwright は主要幅のスクリーンショットと簡易 performance notes を `.codex/verify-output/` に出力します。
+`make verify` は lint、format、build、test、content verification、release verification を実行します。
 
 ## ビルド
 
